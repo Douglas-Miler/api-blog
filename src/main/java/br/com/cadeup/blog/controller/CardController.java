@@ -20,7 +20,7 @@ public class CardController {
 	@Autowired
 	private CardRepository cardRepo;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://demo-angular-blog.herokuapp.com")
 	@GetMapping
 	public List<CardDTO> getCards(){
 		List<CardDTO> cardsDto = new ArrayList<>();
