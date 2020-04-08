@@ -1,9 +1,11 @@
 package br.com.cadeup.blog.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +24,11 @@ public class CardController {
 	
 	@CrossOrigin(origins = "https://demo-angular-blog.herokuapp.com")
 	@GetMapping
-	public List<CardDTO> getCards(){
-		List<CardDTO> cardsDto = new ArrayList<>();
+	public List<CardDTO> getCards(@PageableDefault(page = 0, size = 4) Pageable pageable){
 		
-		List<Card> cards = cardRepo.findAll();
+		Page<Card> cards = cardRepo.findAll(pageable);
 		
-		for (Card card : cards) {
-			cardsDto.add(CardDTO.getInstance(card));
-		}
-		
-		return cardsDto;
+		return CardDTO.convert(cards);
 	}
 	
 }
