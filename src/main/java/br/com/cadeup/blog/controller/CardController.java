@@ -22,7 +22,7 @@ public class CardController {
 	@Autowired
 	private CardRepository cardRepo;
 	
-	@CrossOrigin(origins = "https://demo-angular-blog.herokuapp.com")
+	@CrossOrigin(origins = "https://demo-angular-blog.herokuapp.com" /*"http://localhost:4200"*/)
 	@GetMapping
 	public List<CardDTO> getCards(@PageableDefault(page = 0, size = 4) Pageable pageable){
 		
