@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +21,6 @@ public class CardController {
 	@Autowired
 	private CardRepository cardRepo;
 	
-	@CrossOrigin(origins = "https://demo-angular-blog.herokuapp.com" /*"http://localhost:4200"*/)
 	@GetMapping
 	public List<CardDTO> getCards(@PageableDefault(page = 0, size = 4) Pageable pageable){
 		

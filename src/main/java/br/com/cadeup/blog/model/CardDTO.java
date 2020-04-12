@@ -6,23 +6,21 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
 @Component
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class CardDTO {
 
 	private String description;
 	private String title;
 	private String url;
+	
+	private CardDTO() {}
 	
 	private static CardDTO getInstance(Card card) {
 		ModelMapper modelMapper = new ModelMapper();

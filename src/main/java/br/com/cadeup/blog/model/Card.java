@@ -18,7 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity(name = "tb_card")
+@Entity(name = "TB_CARD")
 public class Card {
 
 	@Id
