@@ -8,21 +8,21 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.cadeup.blog.model.Usuario;
-import br.com.cadeup.blog.repository.UsuarioRepository;
+import br.com.cadeup.blog.model.User;
+import br.com.cadeup.blog.repository.UserRepository;
 
 @Service
 public class AutenticacaoService implements UserDetailsService {
 
 	@Autowired
-	UsuarioRepository repository;
+	UserRepository repository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<Usuario> usuario = repository.findByEmail(username);
+		Optional<User> user = repository.findByEmail(username);
 		
-		if(usuario.isPresent())
-			return usuario.get();
+		if(user.isPresent())
+			return user.get();
 		
 		throw new UsernameNotFoundException("Dados inválidos");
 	}

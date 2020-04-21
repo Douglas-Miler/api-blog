@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.cadeup.blog.config.security.TokenService;
 import br.com.cadeup.blog.model.TokenDTO;
-import br.com.cadeup.blog.model.UsuarioDTO;
+import br.com.cadeup.blog.model.UserForm;
 
 @RestController
 @RequestMapping("/signin")
@@ -29,7 +29,7 @@ public class SignInController {
 	private TokenService tokenService;
 	
 	@PostMapping
-	public ResponseEntity<?> signin(@RequestBody @Valid UsuarioDTO form) {
+	public ResponseEntity<?> signin(@RequestBody @Valid UserForm form) {
 		
 		UsernamePasswordAuthenticationToken dadosLogin = form.convertToUsernamePasswordAuthenticationToken();
 		

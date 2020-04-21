@@ -12,15 +12,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import br.com.cadeup.blog.model.Usuario;
-import br.com.cadeup.blog.repository.UsuarioRepository;
+import br.com.cadeup.blog.model.User;
+import br.com.cadeup.blog.repository.UserRepository;
 
 public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 
 	private TokenService tokenService;
-	private UsuarioRepository userRepo;
+	private UserRepository userRepo;
 
-	public AutenticacaoViaTokenFilter(TokenService tokenService, UsuarioRepository userRepo) {
+	public AutenticacaoViaTokenFilter(TokenService tokenService, UserRepository userRepo) {
 		this.tokenService = tokenService;
 		this.userRepo = userRepo;
 	}
@@ -43,7 +43,7 @@ public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 
 		Long userId = tokenService.getUserId(token);
 
-		Optional<Usuario> user = userRepo.findById(userId);
+		Optional<User> user = userRepo.findById(userId);
 
 		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.get(), null,
 				null);

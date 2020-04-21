@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import br.com.cadeup.blog.model.Usuario;
+import br.com.cadeup.blog.model.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -18,7 +18,7 @@ public class TokenService {
 	
 	public String generateToken(Authentication authentication) {
 		
-		Usuario usuario = (Usuario) authentication.getPrincipal();
+		User user = (User) authentication.getPrincipal();
 		
 		Date today = new Date();
 		
@@ -26,7 +26,9 @@ public class TokenService {
 		
 		return Jwts.builder()
 				.setIssuer("API Blog")
-				.setSubject(String.valueOf(usuario.getId()))
+				.setSubject(String.valueOf(user.getId()))
+				.claim("id", user.getId())
+				.claim("userName", user.getName())
 				.setIssuedAt(today)
 				.setExpiration(tokenExpiration)
 				.signWith(SignatureAlgorithm.HS256, secret).compact();

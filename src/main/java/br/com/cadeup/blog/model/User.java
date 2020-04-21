@@ -17,13 +17,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@SuppressWarnings("serial")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @Entity(name = "TB_USUARIO")
-public class Usuario implements UserDetails {
+public class User implements UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +37,12 @@ public class Usuario implements UserDetails {
 	@Column(name = "PASSWORD")
 	private String password;
 
+	@Column(name = "NOME")
+	private String name;
+	
+	@Column(name = "CARGO")
+	private String position;
+	
 	// perfis do usuario
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

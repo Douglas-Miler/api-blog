@@ -1,11 +1,5 @@
 package br.com.cadeup.blog.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,22 +12,21 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity(name = "TB_CARD")
 public class Card {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
-	private Long id;
-	
-	@Column(name = "TITULO")
 	private String title;
-	
-	@Column(name = "DESCRICAO")
-	private String description;
-	
-	@Lob()
-	@Column(name = "IMAGEM", columnDefinition = "CLOB")
-	private String url;
-	
+	private String introduction;
+	private String image;
+	private String userName;
+	private String userPosition;
+
+	public static Card convertToCard(Article article) {
+		return new Card(
+					article.getTitle(),
+					article.getIntroduction(),
+					article.getImage(),
+					article.getUser().getName(),
+					article.getUser().getPosition()
+				);
+	}
 }
