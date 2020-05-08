@@ -27,7 +27,7 @@ public class CardController {
 	public List<Card> getCards(
 			@PageableDefault(page = 0, size = 3) Pageable pageable){
 		
-		Page<Article> page = articleRepo.findAll(pageable);
+		Page<Article> page = articleRepo.findAllWithAuthor(pageable);
 		
 		List<Article> articles = page.toList();
 		

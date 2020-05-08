@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +25,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity(name = "TB_ARTIGO")
+@Entity
+@Table(name = "TB_ARTIGO")
 public class Article {
 
 	@Id
@@ -51,7 +53,7 @@ public class Article {
 	@Column(name = "DATA_ALTERACAO", columnDefinition = "TIMESTAMP")
 	private LocalDateTime updateDate;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne()
 	@JoinColumn(name = "USUARIO_ID")
 	private User user;
 	
