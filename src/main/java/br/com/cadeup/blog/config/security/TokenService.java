@@ -22,7 +22,7 @@ public class TokenService {
 		
 		Date today = new Date();
 		
-		Date tokenExpiration = new Date(today.getTime() + 1800000L);
+		Date tokenExpiration = new Date(today.getTime() + 120000L);
 		
 		return Jwts.builder()
 				.setIssuer("API Blog")

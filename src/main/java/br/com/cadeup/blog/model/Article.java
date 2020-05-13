@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,6 +36,9 @@ public class Article {
 	@Column(name = "TITULO")
 	private String title;
 	
+	@Column(name = "SUBTITULO")
+	private String secondaryTitle;
+	
 	@Column(name = "CATEGORIA")
 	private String category;
 	
@@ -44,21 +46,21 @@ public class Article {
 	private String introduction;
 	
 	@Lob
-	@Column(name = "CONTEUDO", columnDefinition = "CLOB")
+	@Column(name = "CONTEUDO", columnDefinition = "varchar(max)")
 	private String content;
 	
 	@Column(name = "DATA_CRIACAO", columnDefinition = "DATE")
 	private LocalDate creationDate;
 	
-	@Column(name = "DATA_ALTERACAO", columnDefinition = "TIMESTAMP")
-	private LocalDateTime updateDate;
+	@Column(name = "DATA_ALTERACAO", columnDefinition = "DATETIME")
+	private LocalDateTime updateTimestamp;
 
 	@ManyToOne()
 	@JoinColumn(name = "USUARIO_ID")
 	private User user;
 	
 	@Lob()
-	@Column(name = "IMAGEM", columnDefinition = "CLOB")
+	@Column(name = "IMAGEM", columnDefinition = "varchar(max)")
 	private String image;
 	
 }

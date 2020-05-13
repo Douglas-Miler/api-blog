@@ -14,6 +14,7 @@ import lombok.ToString;
 @ToString
 public class Card {
 
+	private Long id;
 	private String title;
 	private String introduction;
 	private String image;
@@ -22,6 +23,7 @@ public class Card {
 
 	public static Card convertToCard(Article article) {
 		return new Card(
+					article.getId(),
 					article.getTitle(),
 					article.getIntroduction(),
 					article.getImage(),

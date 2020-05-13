@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -42,6 +43,16 @@ public class User implements UserDetails {
 	
 	@Column(name = "CARGO")
 	private String position;
+	
+	@Column(name = "CURRICULO")
+	private String resume;
+	
+	@Column(name = "LINKEDIN_LINK")
+	private String linkedinURL;
+	
+	@Lob()
+	@Column(name = "FOTO_PERFIL", columnDefinition = "varchar(max)")
+	private String profileImage;
 	
 	// perfis do usuario
 	@Override

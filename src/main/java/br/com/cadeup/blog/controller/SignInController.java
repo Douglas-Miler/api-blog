@@ -1,7 +1,5 @@
 package br.com.cadeup.blog.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.security.core.AuthenticationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class SignInController {
 	private TokenService tokenService;
 	
 	@PostMapping
-	public ResponseEntity<?> signin(@RequestBody @Valid UserForm form) {
+	public ResponseEntity<?> signin(@RequestBody UserForm form) {
 		
 		UsernamePasswordAuthenticationToken dadosLogin = form.convertToUsernamePasswordAuthenticationToken();
 		
