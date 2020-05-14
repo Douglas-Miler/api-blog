@@ -11,10 +11,14 @@ public class CorsConfiguration implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/cards")
             .allowedOrigins("http://localhost:4200", "https://demo-angular-blog.herokuapp.com")
-            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS",  "HEAD", "TRACE", "CONNECT");
+            .allowedMethods("GET");
         
         registry.addMapping("/signin")
         .allowedOrigins("http://localhost:4200", "https://demo-angular-blog.herokuapp.com")
-        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS",  "HEAD", "TRACE", "CONNECT");
+        .allowedMethods("POST");
+        
+        registry.addMapping("/article/{id}")
+        .allowedOrigins("http://localhost:4200", "https://demo-angular-blog.herokuapp.com")
+        .allowedMethods("GET");
     }
 }

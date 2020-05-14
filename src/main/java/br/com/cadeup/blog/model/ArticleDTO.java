@@ -14,12 +14,12 @@ public class ArticleDTO {
 	private String category;
 	private String introduction;
 	private String content;
-	private Long updateTimestamp;
+	private Long articleUpdateUnixTime;
 	
 	private String name;
 	private String position;
 	private String resume;
-	private String linkedinURL;
+	private String linkedInURL;
 	private String profileImage;
 	
 	private ArticleDTO() {}
@@ -31,11 +31,11 @@ public class ArticleDTO {
 				article.getCategory(), 
 				article.getIntroduction(), 
 				article.getContent(), 
-				article.getUpdateTimestamp().toEpochSecond(ZoneOffset.UTC), 
+				article.getArticleUpdateDatetime().toEpochSecond(ZoneOffset.UTC), 
 				article.getUser().getName(), 
 				article.getUser().getPosition(), 
 				article.getUser().getResume(), 
-				article.getUser().getLinkedinURL(), 
+				article.getUser().getLinkedInURL(), 
 				article.getUser().getProfileImage());
 	}
 }

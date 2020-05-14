@@ -48,7 +48,7 @@ public class User implements UserDetails {
 	private String resume;
 	
 	@Column(name = "LINKEDIN_LINK")
-	private String linkedinURL;
+	private String linkedInURL;
 	
 	@Lob()
 	@Column(name = "FOTO_PERFIL", columnDefinition = "varchar(max)")

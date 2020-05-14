@@ -53,7 +53,7 @@ public class Article {
 	private LocalDate creationDate;
 	
 	@Column(name = "DATA_ALTERACAO", columnDefinition = "DATETIME")
-	private LocalDateTime updateTimestamp;
+	private LocalDateTime articleUpdateDatetime;
 
 	@ManyToOne()
 	@JoinColumn(name = "USUARIO_ID")
