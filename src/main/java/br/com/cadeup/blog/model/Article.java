@@ -46,13 +46,13 @@ public class Article {
 	private String introduction;
 	
 	@Lob
-	@Column(name = "CONTEUDO", columnDefinition = "varchar(max)")
+	@Column(name = "CONTEUDO", columnDefinition = "varchar")
 	private String content;
 	
 	@Column(name = "DATA_CRIACAO", columnDefinition = "DATE")
 	private LocalDate creationDate;
 	
-	@Column(name = "DATA_ALTERACAO", columnDefinition = "DATETIME")
+	@Column(name = "DATA_ALTERACAO", columnDefinition = "DATE")
 	private LocalDateTime articleUpdateDatetime;
 
 	@ManyToOne()
@@ -60,7 +60,7 @@ public class Article {
 	private User user;
 	
 	@Lob()
-	@Column(name = "IMAGEM", columnDefinition = "varchar(max)")
+	@Column(name = "IMAGEM", columnDefinition = "varchar")
 	private String image;
 	
 }

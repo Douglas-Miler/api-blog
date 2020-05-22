@@ -51,7 +51,7 @@ public class User implements UserDetails {
 	private String linkedInURL;
 	
 	@Lob()
-	@Column(name = "FOTO_PERFIL", columnDefinition = "varchar(max)")
+	@Column(name = "FOTO_PERFIL", columnDefinition = "varchar")
 	private String profileImage;
 	
 	// perfis do usuario
