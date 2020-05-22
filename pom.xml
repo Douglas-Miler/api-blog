@@ -45,6 +45,12 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 
+		<!-- Postgres -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
 		<!-- devtools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

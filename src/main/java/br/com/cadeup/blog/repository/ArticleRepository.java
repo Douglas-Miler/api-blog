@@ -14,6 +14,10 @@ public interface ArticleRepository extends JpaRepository<Article, Long>{
 	@Query("SELECT a FROM Article a JOIN a.user")
 	Page<Article> findAllWithAuthor(Pageable pageable);
 	
-	@Query("SELECT a FROM Article a JOIN a.user where a.id = ?1")
+	@Query("SELECT a FROM Article a JOIN a.user WHERE a.id = ?1")
 	Optional<Article> findByIdWithAuthor(Long id);
+	
+	@Query("SELECT a FROM Article a JOIN a.user WHERE a.content LIKE %?1%")
+	Page<Article> findByContentWithAuthor(String searchedWord, Pageable pageable);
+	
 }
