@@ -13,6 +13,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,6 +48,7 @@ public class Article {
 	private String introduction;
 	
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "CONTEUDO", columnDefinition = "varchar")
 	private String content;
 	
@@ -60,6 +63,7 @@ public class Article {
 	private User user;
 	
 	@Lob()
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "IMAGEM", columnDefinition = "varchar")
 	private String image;
 	

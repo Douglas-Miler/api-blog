@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -51,6 +52,7 @@ public class User implements UserDetails {
 	private String linkedInURL;
 	
 	@Lob()
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "FOTO_PERFIL", columnDefinition = "varchar")
 	private String profileImage;
 	
