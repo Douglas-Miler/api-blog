@@ -1,6 +1,6 @@
 package br.com.cadeup.blog.model;
 
-import java.time.ZoneOffset;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ public class ArticleDTO {
 	private String category;
 	private String introduction;
 	private String content;
-	private Long articleUpdateUnixTime;
+	private LocalDate creationDate;
 	
 	private String name;
 	private String position;
@@ -22,6 +22,7 @@ public class ArticleDTO {
 	private String linkedInURL;
 	private String profileImage;
 	
+	@SuppressWarnings("unused")
 	private ArticleDTO() {}
 	
 	public static ArticleDTO convertToArticleDTO(Article article) {
@@ -30,8 +31,8 @@ public class ArticleDTO {
 				article.getSecondaryTitle(), 
 				article.getCategory(), 
 				article.getIntroduction(), 
-				article.getContent(), 
-				article.getArticleUpdateDatetime().toEpochSecond(ZoneOffset.UTC), 
+				article.getContent(),
+				article.getCreationDate(),
 				article.getUser().getName(), 
 				article.getUser().getPosition(), 
 				article.getUser().getResume(), 

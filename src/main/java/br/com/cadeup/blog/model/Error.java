@@ -8,10 +8,11 @@ public class Error {
 	private boolean error;
 	private String detail;
 	
+	@SuppressWarnings("unused")
 	private Error() {}
 	
 	@Override
 	public String toString() {
-		return "{error: " + this.error + ", detail: " + this.detail + "}";
+		return "{\"error\": " + this.error + ", \"detail\": " + "\""+ this.detail + "\"" + "}";
 	}
 }

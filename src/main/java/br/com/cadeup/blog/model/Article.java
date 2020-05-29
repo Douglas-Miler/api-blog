@@ -1,7 +1,6 @@
 package br.com.cadeup.blog.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,14 +48,11 @@ public class Article {
 	
 	@Lob
 	@Type(type = "org.hibernate.type.TextType")
-	@Column(name = "CONTEUDO", columnDefinition = "varchar")
+	@Column(name = "CONTEUDO", columnDefinition = "varchar(max)")
 	private String content;
 	
 	@Column(name = "DATA_CRIACAO", columnDefinition = "DATE")
 	private LocalDate creationDate;
-	
-	@Column(name = "DATA_ALTERACAO", columnDefinition = "DATE")
-	private LocalDateTime articleUpdateDatetime;
 
 	@ManyToOne()
 	@JoinColumn(name = "USUARIO_ID")
@@ -64,7 +60,7 @@ public class Article {
 	
 	@Lob()
 	@Type(type = "org.hibernate.type.TextType")
-	@Column(name = "IMAGEM", columnDefinition = "varchar")
+	@Column(name = "IMAGEM", columnDefinition = "varchar(max)")
 	private String image;
 	
 }

@@ -20,16 +20,12 @@ public class ArticleService {
 	private ArticleRepository articleRepository;
 	
 	public Optional<Article> findByIdWithAuthor(String id) {
-		
 		this.id = Long.parseLong(id);
-		
 		return this.articleRepository.findByIdWithAuthor(this.id);
 	}
 
 	public List<Article> getArticlesFromSubject(String subject, Pageable pageable) {
-
 		Page<Article> page = articleRepository.findByContentWithAuthor(this.removeWrappedSpaces(subject), pageable);
-		
 		return page.toList();
 	}
 	

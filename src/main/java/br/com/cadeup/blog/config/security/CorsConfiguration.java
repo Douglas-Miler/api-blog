@@ -24,5 +24,9 @@ public class CorsConfiguration implements WebMvcConfigurer {
         registry.addMapping("/article/{id}")
         .allowedOrigins("http://localhost:4200", "https://demo-angular-blog.herokuapp.com")
         .allowedMethods("GET");
+        
+        registry.addMapping("/save")
+        .allowedOrigins("http://localhost:4200", "https://demo-angular-blog.herokuapp.com")
+        .allowedMethods("POST");
     }
 }

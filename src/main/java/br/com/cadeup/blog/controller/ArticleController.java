@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.cadeup.blog.model.Article;
 import br.com.cadeup.blog.model.ArticleDTO;
+import br.com.cadeup.blog.model.ArticleForm;
 import br.com.cadeup.blog.service.ArticleService;
 
 @RestController
@@ -26,7 +29,10 @@ public class ArticleController {
 			return ResponseEntity.ok(ArticleDTO.convertToArticleDTO(article.get()));
 		
 		return ResponseEntity.notFound().build();
-		
 	}
 	
+	@PostMapping("/save")
+	public ResponseEntity<?> save(@RequestBody ArticleForm articleForm){
+		return ResponseEntity.ok().build();
+	}
 }

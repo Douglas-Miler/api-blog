@@ -53,7 +53,7 @@ public class User implements UserDetails {
 	
 	@Lob()
 	@Type(type = "org.hibernate.type.TextType")
-	@Column(name = "FOTO_PERFIL", columnDefinition = "varchar")
+	@Column(name = "FOTO_PERFIL", columnDefinition = "varchar(max)")
 	private String profileImage;
 	
 	// perfis do usuario
