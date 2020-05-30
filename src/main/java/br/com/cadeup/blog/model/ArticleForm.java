@@ -4,9 +4,11 @@ import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class ArticleForm {
 
 	private String title;
@@ -16,6 +18,5 @@ public class ArticleForm {
 	private String content;
 	private LocalDate creationDate;
 	private Long userId;
-	private String image;
 	
 }

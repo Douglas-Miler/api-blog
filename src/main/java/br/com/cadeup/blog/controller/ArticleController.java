@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.cadeup.blog.model.Article;
 import br.com.cadeup.blog.model.ArticleDTO;
@@ -31,7 +33,13 @@ public class ArticleController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/save/image")
+	public ResponseEntity<?> save(@RequestBody MultipartFile imageFile){
+		System.out.println(imageFile.getOriginalFilename());
+		return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("/save/form")
 	public ResponseEntity<?> save(@RequestBody ArticleForm articleForm){
 		return ResponseEntity.ok().build();
 	}
