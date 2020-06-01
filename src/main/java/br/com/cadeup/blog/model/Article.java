@@ -12,8 +12,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,7 +45,6 @@ public class Article {
 	private String introduction;
 	
 	@Lob
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "CONTEUDO", columnDefinition = "varchar(max)")
 	private String content;
 	
@@ -59,8 +56,19 @@ public class Article {
 	private User user;
 	
 	@Lob()
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "IMAGEM", columnDefinition = "varchar(max)")
 	private String image;
 	
+	public Article(ArticleForm articleForm) {
+		this.category = articleForm.getCategory();
+		this.content = articleForm.getContent();
+		this.creationDate = articleForm.getCreationDate();
+		this.image = articleForm.getImage();
+		this.introduction = articleForm.getIntroduction();
+		this.secondaryTitle = articleForm.getSecondaryTitle();
+		this.title = articleForm.getTitle();
+		User user = new User();
+		user.setId(articleForm.getUserId());
+		this.user = user;
+	}
 }

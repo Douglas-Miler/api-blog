@@ -18,5 +18,6 @@ public class ArticleForm {
 	private String content;
 	private LocalDate creationDate;
 	private Long userId;
+	private String image;
 	
 }
