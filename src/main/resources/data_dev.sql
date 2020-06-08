@@ -1,3 +1,5 @@
+use blog;
+
 insert into tb_usuario 
 (email, linkedin_link, nome, password, cargo, foto_perfil, curriculo) 
 values 
