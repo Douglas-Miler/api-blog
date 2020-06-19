@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
+import org.springframework.data.web.SortDefault.SortDefaults;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +29,10 @@ public class CardController {
 	
 	@GetMapping
 	public List<Card> getCards(
-			@PageableDefault(page = 0, size = 3, direction = Direction.DESC, sort = {"creationDate"}) Pageable pageable){
+			@PageableDefault(page = 0, size = 3)
+			@SortDefaults({
+							@SortDefault(sort = "id", direction = Direction.DESC)
+						}) Pageable pageable){
 		
 		logger.trace("Entering in getCards method");
 		logger.info("Success: 200");
@@ -37,7 +42,10 @@ public class CardController {
 	
 	@GetMapping("/search")
 	public List<Card> getSearchedCards(
-			@PageableDefault(page = 0, size = 3, direction = Direction.DESC, sort = {"creationDate"}) Pageable pageable, 
+			@PageableDefault(page = 0, size = 3)
+			@SortDefaults({
+							@SortDefault(sort = "id", direction = Direction.DESC)
+						}) Pageable pageable, 
 			@RequestParam(name="subject") String subject){
 
 		logger.trace("Entering in getSearchedCards method");
