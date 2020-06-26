@@ -1,6 +1,6 @@
 service: default
 
-runtime: java
+runtime: java8
 env: flex
 
 runtime_config:
